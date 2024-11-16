@@ -2,6 +2,10 @@
 // Assembly         : VTEX.Health
 // Author           : Guilherme Branco Stracini
 // Created          : 01-15-2023
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public VtexHealthClient(IHttpClientFactory httpClientFactory)
+        {
 //
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 01-15-2023
@@ -36,9 +40,10 @@ namespace VTEX.Health
         /// <summary>
         /// The HTTP client
         /// </summary>
-        private readonly HttpClient _httpClient;
+            _httpClient = httpClientFactory.CreateClient();
 
         #region ~ctors
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VtexHealthClient" /> class.
