@@ -61,6 +61,14 @@ namespace VTEX.Health
             }
         }
 
+        _httpClient = httpClientFactory.CreateClient();
+
+        if (httpClientFactory == null)
+        {
+            throw new ArgumentNullException(nameof(httpClientFactory));
+        }
+
+        _httpClient = httpClientFactory.CreateClient();
             _httpClient = httpClientFactory.CreateClient();
 
         #endregion
