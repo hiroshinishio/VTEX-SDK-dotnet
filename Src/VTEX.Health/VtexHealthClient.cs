@@ -1,4 +1,5 @@
 ﻿// ***********************************************************************
+using Microsoft.Extensions.Http;
 // Assembly         : VTEX.Health
 // Author           : Guilherme Branco Stracini
 // Created          : 01-15-2023
