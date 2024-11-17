@@ -55,7 +55,8 @@ namespace VTEX.Health
             }
 
             _logger = loggerFactory.CreateLogger<VtexHealthClient>();
-            _httpClient = httpClientFactory?.CreateClient() ?? throw new ArgumentNullException(nameof(httpClientFactory));
+            _httpClient =
+                httpClientFactory?.CreateClient() ?? throw new ArgumentNullException(nameof(httpClientFactory));
         }
 
         #endregion
