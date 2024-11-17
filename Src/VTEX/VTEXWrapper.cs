@@ -164,7 +164,7 @@ namespace VTEX
 
                 using var handler = new HttpClientHandler { CookieContainer = cookieContainer };
 
-                using var client = new HttpClient(handler);
+                using var client = _httpClientFactory.CreateClient();
 
                 ConfigureClient(client, requiresAuthentication);
 
@@ -320,12 +320,17 @@ namespace VTEX
         /// </remarks>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when an unsupported HTTP method is provided.</exception>
         private static async Task<HttpResponseMessage> RequestInternalAsync(
+        private readonly IHttpClientFactory _httpClientFactory;
             HttpRequestMethod method,
             CancellationToken token,
             string data,
             HttpClient client,
             UriBuilder uriBuilder
         )
+        public VTEXWrapper(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
         {
             HttpResponseMessage response;
             StringContent content = null;
