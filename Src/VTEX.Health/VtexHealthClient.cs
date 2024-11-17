@@ -3,8 +3,14 @@
 // Author           : Guilherme Branco Stracini
 // Created          : 01-15-2023
 //
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public VtexHealthClient(IHttpClientFactory httpClientFactory)
+        {
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 01-15-2023
+            _httpClientFactory = httpClientFactory;
+            _httpClient = _httpClientFactory.CreateClient();
 // ***********************************************************************
 // <copyright file="VtexHealthClient.cs" company="Guilherme Branco Stracini">
 //     © 2020 Guilherme Branco Stracini. All rights reserved.
